@@ -4,13 +4,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-import * as VeeValidate from 'vee-validate';
+import VeeValidate from 'vee-validate';
+// import { ValidationProvider } from 'vee-validate';
+
+window.VeeValidate = require('vee-validate');
 
 Vue.use(VeeValidate);
+
 // try {
 //     window.$ = window.jQuery = require('jquery');
 // } catch (e) {}
@@ -25,8 +28,8 @@ Vue.use(VeeValidate);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
+Vue.component('reg-component', require('./components/RegFormComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38,3 +41,17 @@ import Vue from 'vue';
 const app = new Vue({
     el: '#app',
 });
+
+
+window.onscroll = function() {stickyHeader()};
+
+var header = document.getElementById("header");
+var sticky = header.offsetTop;
+
+function stickyHeader() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }
+}
