@@ -83,8 +83,6 @@
                     password: '',
                     selectedCountry: ''
                 },
-
-                countries : [{name: 'Jordan', code: '+962'}, {name: 'KSA', code: '+965'},{name: 'UAE', code: '+967'} ],
                 submitted: false,
 
             }
