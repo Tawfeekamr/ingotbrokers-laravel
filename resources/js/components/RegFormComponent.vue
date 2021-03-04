@@ -88,13 +88,9 @@
             }
             },
         methods: {
-            onSelect(e) {
-                console.log(e);
-                this.user.selectedCountry = e.target.value;
-            },
-
-            handleSubmit(e) {
-                this.submitted = true;
+               handleSubmit(e) {
+                   e.preventDefault();
+                   this.submitted = true;
                 this.$validator.validate().then(valid => {
                     if (valid) {
                         console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.user))
